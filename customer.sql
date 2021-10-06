@@ -4,7 +4,9 @@ DROP DATABASE IF EXISTS customer;
 #Create a table customer (cust_no varchar (5), cust_name varchar (15), age number,phone varchar (10))
 
     CREATE DATABASE customer;
+
     USE customer;
+    
     CREATE TABLE customer (
         cust_no varchar(5) primary key,
         cust_name varchar(15) not null,
