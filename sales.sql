@@ -35,10 +35,10 @@ should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*
     DESCRIBE sales_order;
 
     #insert into sales_order(order_no,order_date,del_type) values("2","2021-10-06","A");
-    #ERROR 3819 (HY000): Check constraint 'sales_order_chk_1' is violated.
+    #ERROR 3819 (HY000): Check constraint 'del_type_const' is violated.
 
     #insert into sales_order(order_no,order_date,del_type,order_status) values("2","2021-10-06","P","HELLO");
-    #ERROR 3819 (HY000): Check constraint 'sales_order_chk_2' is violated.
+    #ERROR 3819 (HY000): Check constraint 'order_status_const' is violated.
     
 
 #Insert few records in both tables
@@ -57,7 +57,7 @@ should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*
     ("2","2021-10-06",2,"P","Inprocess"),
     ("3","2021-10-06",3,"P","Fullfilled"),
     ("4","2021-10-06",4,"P","Backorder"),
-    ("5","2021-10-06",7,"F","Cancelled");
+    ("5","2021-10-06",5,"F","Cancelled");
 
     SELECT * FROM sales_order;
 
