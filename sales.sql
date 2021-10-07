@@ -61,13 +61,6 @@ should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*
 
     SELECT * FROM sales_order;
 
-
-#Delete primary key from sales_man table
-
-    ALTER TABLE sales_man DROP PRIMARY KEY;
-
-    DESC sales_man;
-
 #Delete Foreign key and Check constraints from sales_order table
 
     ALTER TABLE sales_order DROP CONSTRAINT salesman_no_fgk;
@@ -77,6 +70,12 @@ should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*
     ALTER TABLE sales_order DROP CONSTRAINT del_type_const;
 
     DESC sales_order;
+
+#Delete primary key from sales_man table
+
+    ALTER TABLE sales_man DROP PRIMARY KEY;
+
+    DESC sales_man;
 
 #Add primary key in sales_man using ALTER TABLE
 
