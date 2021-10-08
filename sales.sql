@@ -25,7 +25,7 @@
             salesman_no VARCHAR(10),
             del_type CHAR(1),
             order_status VARCHAR(10),
-            FOREIGN KEY (salesman_no) REFERENCES sales_man(salesman_no),
+            CONSTRAINT fk_salesman_no FOREIGN KEY (salesman_no) REFERENCES sales_man(salesman_no),
             CONSTRAINT check_order_status CHECK (order_status IN ('Inprocess','Fullfilled','Backorder', 'Cancelled')),
             CONSTRAINT check_del_type CHECK(del_type='P' OR del_type='F')
         );
@@ -62,7 +62,7 @@
 
 #Delete Foreign key and Check constraints from sales_order table
 
-    ALTER TABLE sales_order DROP FOREIGN KEY salesman_no;
+    ALTER TABLE sales_order DROP FOREIGN KEY fk_salesman_no;
 
     ALTER TABLE sales_order DROP CONSTRAINT order_status_const;
 
@@ -78,13 +78,13 @@
 
 #Add primary key in sales_man using ALTER TABLE
 
-    ALTER TABLE sales_man ADD CONSTRAINT salesman_no_prk PRIMARY KEY(salesman_no);
+    ALTER TABLE sales_man Add PRIMARY KEY(salesman_no);
 
     DESC sales_man;
 
 #Add foreign key and CHECK constraints in sales_order table using ALTER TABLE
 
-    ALTER TABLE sales_order ADD CONSTRAINT salesman_no_fgk FOREIGN KEY (salesman_no) REFERENCES sales_man(salesman_no);
+    ALTER TABLE sales_order ADD FOREIGN KEY (salesman_no) REFERENCES sales_man(salesman_no);
 
     ALTER TABLE sales_order ADD CONSTRAINT order_status_const CHECK (order_status IN ('Inprocess','Fullfilled','Backorder', 'Cancelled'));
 
