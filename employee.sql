@@ -37,8 +37,8 @@ DROP DATABASE IF EXISTS employee;
 
 #Display the name and age of the oldest employee of each department.
 
- SELECT p.EName,p.Age,p.Department FROM employee p HAVING p.age=(SELECT MAX(Age) from employee p2 WHERE p.Department=p2.Department GROUP BY p2.Department);
- 
+    SELECT p.EName,p.Age,p.Department FROM employee p HAVING p.age=(SELECT MAX(Age) from employee p2 WHERE p.Department=p2.Department GROUP BY p2.Department);
+
 #Display the average age of employees of each department
 
     SELECT AVG(Age) AS Age,Department FROM employee GROUP BY Department;
