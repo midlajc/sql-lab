@@ -1,36 +1,35 @@
-DROP DATABASE IF EXISTS sales;
+    DROP DATABASE IF EXISTS sales;
 
-#Create a table sales_man ( salesman_no primary key, s_name not null, place,phone unique)
+    #Create a table sales_man ( salesman_no primary key, s_name not null, place,phone unique)
 
-    CREATE DATABASE sales;
+        CREATE DATABASE sales;
 
-    USE sales;
+        USE sales;
 
-    CREATE TABLE sales_man (
-        salesman_no VARCHAR(10),
-        s_name VARCHAR(20) NOT NULL,
-        place VARCHAR(10),
-        phone INT(10),
-        CONSTRAINT salesman_no_prk PRIMARY KEY(salesman_no)
-    );
+        CREATE TABLE sales_man (
+            salesman_no VARCHAR(10) PRIMARY KEY,
+            s_name VARCHAR(20) NOT NULL,
+            place VARCHAR(10),
+            phone INT(10)
+        );
 
-    DESCRIBE sales_man;
+        DESCRIBE sales_man;
 
-/*Create table sales_order (order_no primary key order_date not null salesman_no foreign key references 
-salesman_no in sales_man del_type values should be either P or F (check constraints)order_status values
-should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*/
+    /*Create table sales_order (order_no primary key order_date not null salesman_no foreign key references 
+    salesman_no in sales_man del_type values should be either P or F (check constraints)order_status values
+    should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*/
 
-    CREATE TABLE sales_order(
-        order_no VARCHAR(10),
-        order_date date NOT NULL,
-        salesman_no VARCHAR(10),
-        del_type CHAR(1) ,
-        order_status VARCHAR(10),
-        CONSTRAINT salesman_no_fgk FOREIGN KEY (salesman_no) REFERENCES sales_man(salesman_no),
-        CONSTRAINT del_type_const CHECK (del_type='P' OR del_type='F'),
-        CONSTRAINT order_status_const CHECK (order_status IN ('Inprocess','Fullfilled','Backorder', 'Cancelled')),
-        CONSTRAINT order_no_prk PRIMARY KEY (order_no)
-    );
+        CREATE TABLE sales_order(
+            order_no VARCHAR(10) PRIMARY KEY,
+            order_date date NOT NULL,
+            salesman_no VARCHAR(10),
+            del_type CHAR(1),
+            order_status VARCHAR(10),
+            FOREIGN KEY (salesman_no) REFERENCES sales_man(salesman_no),
+            CONSTRAINT check_order_status CHECK (order_status IN ('Inprocess','Fullfilled','Backorder', 'Cancelled')),
+            CONSTRAINT check_del_type CHECK(del_type='P' OR del_type='F')
+        );
+
 
     DESCRIBE sales_order;
 
@@ -63,7 +62,7 @@ should be 'Inprocess','Fullfilled','Backorder', 'Cancelled' (checkconstraints))*
 
 #Delete Foreign key and Check constraints from sales_order table
 
-    ALTER TABLE sales_order DROP CONSTRAINT salesman_no_fgk;
+    ALTER TABLE sales_order DROP FOREIGN KEY salesman_no;
 
     ALTER TABLE sales_order DROP CONSTRAINT order_status_const;
 
