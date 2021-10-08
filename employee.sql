@@ -37,4 +37,28 @@ DROP DATABASE IF EXISTS employee;
 
 #Display the name and age of the oldest employee of each department.
 
-            
+    SELECT ANY_VALUE(EName) AS "EName",MAX(Age) AS Age,Department from employee GROUP BY Department ORDERED BY Age;
+
+#Display the average age of employees of each department
+
+    SELECT AVG(Age) AS Age,Department FROM employee GROUP BY Department;
+
+#Display departments and the average salaries    
+
+    SELECT AVG(Salary) AS Salary,Department FROM employee GROUP BY Department;
+
+#Display the lowest salary in employee table
+
+    SELECT MIN(Salary) FROM employee;
+
+#Display the number of employees working in purchase department
+
+    SELECT COUNT(*) FROM employee WHERE Department="PURCHASE";
+
+#Display the highest salary in sales department;
+
+    SELECT MAX(Salary) FROM employee WHERE Department="SALES";
+
+#Display the difference between highest and lowest salary    
+
+    SELECT MAX(Salary)-MIN(Salary) FROM employee;
