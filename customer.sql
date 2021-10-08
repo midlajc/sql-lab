@@ -56,7 +56,7 @@ DROP DATABASE IF EXISTS customer;
 #delete all the records from the table
 
     DELETE FROM customer;
-
+ 
 #rename the table cutomer to cust
 
     ALTER TABLE customer RENAME cust;
