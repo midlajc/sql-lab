@@ -20,16 +20,19 @@ DROP DATABASE IF EXISTS prime;
         DECLARE sta VARCHAR(1);
         SET sta="0";
         SET I=2;
+        IF num<2 THEN
+            CALL print("The Given Number is less Than 2");
+        ELSE    
             WHILE I<num DO
                 IF num%I=0 THEN
                     CALL print("The Given Number Is Not a Prime");
-                    SET sta="0";
-                    EXIT;
+                    SET sta="1";
                 END IF;
                 SET I=I+1;
             END WHILE;
-        IF sta!=0 THEN   
-            call print("The Given Number is Prime");
+            IF sta=0 THEN   
+                call print("The Given Number is Prime");
+            END IF;
         END IF;
     END/
 
