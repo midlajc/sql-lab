@@ -16,7 +16,6 @@ DROP DATABASE IF EXISTS prime;
     CREATE PROCEDURE prime(IN num FLOAT)
     exit_label:BEGIN
         DECLARE I FLOAT;
-        DECLARE che FLOAT;
         DECLARE sta VARCHAR(1);
         SET I=2;
         IF num<2 THEN
