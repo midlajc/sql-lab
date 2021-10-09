@@ -15,13 +15,8 @@ DROP DATABASE IF EXISTS fibonacci;
 
     CREATE PROCEDURE fibonacci(IN lm INT)
     BEGIN
-        DECLARE A INT;
-        DECLARE B INT;
-        DECLARE C INT;
-        DECLARE I INT;
-        SET A=-1;
-        SET B=1;
-        SET I=0;
+        DECLARE A,B,C,I INT;
+        SET A=-1,B=1,I=0;
         WHILE I<lm DO
             SET C=A+B;
             CALL print(C);
