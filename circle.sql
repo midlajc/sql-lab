@@ -18,8 +18,7 @@ DROP DATABASE IF EXISTS circle_db;
 
     CREATE PROCEDURE calc_areas() 
     BEGIN 
-        DECLARE area FLOAT;
-        DECLARE radius FLOAT; 
+        DECLARE area,radius FLOAT;
         SET radius=3; 
         WHILE radius<7 DO
             SET area=3.14*(radius*radius);
