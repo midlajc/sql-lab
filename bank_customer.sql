@@ -8,7 +8,7 @@ DROP DATABASE IF EXISTS bank_customer;
 
     CREATE TABLE bank_customer (
         accno INT(10) PRIMARY KEY,
-        cust_name VARCHAR(25) NOT NULL,
+        cust_name VARCHAR(25) PRIMARY KEY,
         place VARCHAR(30)
     );
 
@@ -16,7 +16,7 @@ DROP DATABASE IF EXISTS bank_customer;
 
     CREATE TABLE deposit(
         accno INT(10),
-        deposit_no VARCHAR(10) NOT NULL,
+        deposit_no VARCHAR(10) PRIMARY KEY,
         damount INT(32),
         CONSTRAINT fk_accno FOREIGN KEY (accno) REFERENCES bank_customer(accno)
     );
@@ -55,7 +55,15 @@ DROP DATABASE IF EXISTS bank_customer;
 
 #Display the details of the customers
 
-    SELECT * FROM bank_customer;
+    SELECT * FROM 
+    (
+        (
+            bank_customer.bank_customer bc 
+            LEFT JOIN bank_customer.loan l
+            ON (bc.accno=l.accno)
+        )LEFT JOIN bank_customer.deposit d 
+            ON (bc.accno=d.accno)
+    );
 
 #Display the customers along with deposit amount who have only deposit with the bank
 
@@ -87,14 +95,17 @@ DROP DATABASE IF EXISTS bank_customer;
 
 #Display the customer who have neither a loan nor a deposit with the banK    
 
-    SELECT * 
-    FROM 
-    (
+    SELECT * FROM bank_customer
+    WHERE accno NOT IN (
+        SELECT bc.accno
+        FROM
         (
+            (
                 bank_customer.bank_customer bc 
                 LEFT JOIN bank_customer.loan l
                 ON (bc.accno=l.accno)
-        )LEFT JOIN bank_customer.deposit d 
-            ON (bc.accno=d.accno)
-    )
-    WHERE (l.loan_no=NULL AND d.deposit_no=NULL);
+            )LEFT JOIN bank_customer.deposit d 
+                ON (bc.accno=d.accno)
+        )
+        WHERE (l.loan_no!='' OR d.deposit_no!='')
+    );
