@@ -22,8 +22,8 @@ DROP DATABASE IF EXISTS circle_db;
         SET radius=3; 
         WHILE radius<7 DO
             SET area=3.14*(radius*radius);
-            INSERT INTO areas(radius,area)VALUES(radius,area);
-            SET radius=radius+0.1;
+            #INSERT INTO areas(radius,area)VALUES(radius,area);
+            SET radius=radius+1;
         END WHILE;                           
     END/
 
