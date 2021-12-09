@@ -25,9 +25,9 @@ DROP DATABASE IF EXISTS electricity;
         CASE
             WHEN unit_used<=120 AND unit_used>0 THEN
                 SET amount=unit_used*rate1;
-            WHEN unit_used<=250 AND unit_used>120 THEN
+            WHEN unit_used<=250 THEN
                 SET amount=unit_used*rate2;
-            WHEN unit_used<=500 AND unit_used>250 THEN
+            WHEN unit_used<=500 THEN
                 SET amount=unit_used*rate3;
             WHEN unit_used>500 THEN
                 SET amount=unit_used*rate4;
