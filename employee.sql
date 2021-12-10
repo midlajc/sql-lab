@@ -14,7 +14,6 @@ DROP DATABASE IF EXISTS employee;
         Age INT(3)
     );
 
-    DESC employee;
 
 #Insert some records
 
@@ -30,6 +29,9 @@ DROP DATABASE IF EXISTS employee;
     ("EP009","Minha","500000","OPERATION",20),
     ("EP010","Mubashir Ali","500000","PURCHASE",20)
     ;
+
+    DESC employee;
+    SELECT * FROM employee;
     
 #Display the total number of employees.
 

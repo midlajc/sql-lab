@@ -13,7 +13,6 @@ DROP DATABASE IF EXISTS employee;
         salary INT(15)
     );
 
-    DESC employee;
 
     INSERT INTO employee(empno,ename,salary,enamedept)
     VALUES ("EP001","Vikram Hassan","200000","HR"),
@@ -52,6 +51,10 @@ DROP DATABASE IF EXISTS employee;
     END//
 
     DELIMITER ;
+    
+    DESC employee;
+
+    SELECT * FROM employee;
 
     CALL average("MANAGEMENT",@average_salary);
 

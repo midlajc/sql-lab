@@ -33,5 +33,4 @@ DROP DATABASE IF EXISTS prime;
     END/
 
     DELIMITER ;       
-
     CALL prime(4);

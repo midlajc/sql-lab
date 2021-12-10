@@ -15,7 +15,6 @@ DROP DATABASE IF EXISTS hospital;
         experience INT(2)
     );
 
-    DESC hospital;
 
 #Insert 5 records
 
@@ -28,6 +27,7 @@ DROP DATABASE IF EXISTS hospital;
 
 #Display the details of Doctors
 
+    DESC hospital;
     SELECT * FROM hospital;
 
 #Display the details of doctors who have the qualification ‘MD’    

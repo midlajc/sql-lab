@@ -14,6 +14,7 @@ DROP DATABASE IF EXISTS products;
         Price INT(15)
     );
 
+
 #Insert some records Write the queries to perform the following
 
     INSERT INTO product(Product_code,Product_Name,Category,Quantity,Price)
@@ -22,6 +23,9 @@ DROP DATABASE IF EXISTS products;
     ("P003","Ujala Washing Powder","Washing Powder",250,30),
     ("P004","Sun Light Washing Powder","Washing Powder",2000,150),
     ("P005","KP Namboodiris","Paste",2000,25);
+
+    DESC product;
+    SELECT * FROM product;
 
 #Display the records in the descending order of Product_Name    
 

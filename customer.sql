@@ -25,6 +25,8 @@ DROP DATABASE IF EXISTS customer;
         ("cs4", "edwin", 20, "3231275920"),
         ("cs5", "aslam", 20, "1234567890");
 
+    DESCRIBE customer;
+
     SELECT * FROM customer;
 
 #add new field d_birth with date datatype
@@ -56,6 +58,8 @@ DROP DATABASE IF EXISTS customer;
 #delete all the records from the table
 
     DELETE FROM customer;
+
+    SELECT * from customer;
  
 #rename the table cutomer to cust
 

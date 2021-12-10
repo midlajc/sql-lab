@@ -39,6 +39,9 @@ DROP DATABASE IF EXISTS electricity;
 
     DELIMITER ;
 
-    CALL calc_bill("CM0001",100);
+    DESC electricity_bill;
+
+    CALL calc_bill("CM0001",120);
+    CALL calc_bill("CM0002",121);
 
     SELECT * FROM electricity_bill;

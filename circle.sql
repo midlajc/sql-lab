@@ -14,6 +14,7 @@ DROP DATABASE IF EXISTS circle_db;
         area VARCHAR(10)
     );
 
+
     DELIMITER /
 
     CREATE PROCEDURE calc_areas() 
@@ -22,12 +23,14 @@ DROP DATABASE IF EXISTS circle_db;
         SET radius=3; 
         WHILE radius<7 DO
             SET area=3.14*(radius*radius);
-            #INSERT INTO areas(radius,area)VALUES(radius,area);
+            INSERT INTO areas(radius,area)VALUES(radius,area);
             SET radius=radius+1;
         END WHILE;                           
     END/
 
     DELIMITER ;
+    
+    DESC areas;
 
     CALL calc_areas();
 

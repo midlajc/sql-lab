@@ -28,4 +28,4 @@ DROP DATABASE IF EXISTS fibonacci;
 
     DELIMITER ;
 
-    CALL fibonacci(10);
+    CALL fibonacci(9);

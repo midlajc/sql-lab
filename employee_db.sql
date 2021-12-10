@@ -36,6 +36,7 @@ DROP DATABASE IF EXISTS employee;
         FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
     );
 
+
     INSERT INTO employee
     VALUES("EMP0001","MIDLAJ C","WAYANAD"),
     ("EMP0002","MINHA","WAYANAD"),
@@ -57,7 +58,7 @@ DROP DATABASE IF EXISTS employee;
     ("EMP0005","MIDLAJ"),
     ("EMP0006","MIDLAJ");
 
-    INSERT works
+    INSERT INTO works
     VALUES("EMP0001","CMP0001","1000000"),
     ("EMP0002","CMP0001","1000000"),
     ("EMP0003","CMP0003","500000"),
@@ -65,6 +66,15 @@ DROP DATABASE IF EXISTS employee;
     ("EMP0005","CMP0002","800000"),
     ("EMP0006","CMP0003","900000");
     
+    DESC employee;
+    DESC company;
+    DESC works;
+    DESC manager;
+
+    SELECT * FROM employee;
+    SELECT * FROM company;
+    SELECT * FROM works;
+    SELECT * FROM manager;
 -- A) Find the names of all employees who work in Infosys
 
     SELECT 
@@ -123,7 +133,7 @@ DROP DATABASE IF EXISTS employee;
         e.emp_id,
         e.emp_name,
         e.city as "residence",
-        c.city as "compani office"
+        c.city as "company office"
     FROM
     (
         (

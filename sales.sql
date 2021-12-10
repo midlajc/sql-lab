@@ -13,7 +13,6 @@
             phone INT(10)
         );
 
-        DESCRIBE sales_man;
 
     /*Create table sales_order (order_no primary key order_date not null salesman_no foreign key references 
     salesman_no in sales_man del_type values should be either P or F (check constraints)order_status values
@@ -31,7 +30,6 @@
         );
 
 
-    DESCRIBE sales_order;
 
     #insert into sales_order(order_no,order_date,del_type) values("2","2021-10-06","A");
     #ERROR 3819 (HY000): Check constraint 'del_type_const' is violated.
@@ -49,7 +47,6 @@
     ("4","Jeff Bezos","US","400000"),
     ("5","Mark Zuckerberg","US","50000");
 
-    SELECT * FROM sales_man;
 
     INSERT INTO sales_order(order_no,order_date,salesman_no,del_type,order_status)
     VALUES("1","2021-10-06",1,"P","Fullfilled"),
@@ -58,6 +55,9 @@
     ("4","2021-10-06",4,"P","Backorder"),
     ("5","2021-10-06",5,"F","Cancelled");
 
+    DESCRIBE sales_man;
+    DESCRIBE sales_order;
+    SELECT * FROM sales_man;
     SELECT * FROM sales_order;
 
 #Delete Foreign key and Check constraints from sales_order table
