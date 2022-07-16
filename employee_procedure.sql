@@ -30,6 +30,8 @@ DROP DATABASE IF EXISTS employee;
 #Write a function to return the average salary of a particular department by accepting
 #departmentname as argument    
 
+    ############################################
+    
     DELIMITER //
 
     CREATE PROCEDURE average(IN inout_val VARCHAR(10),OUT average_salary FLOAT)
@@ -52,6 +54,7 @@ DROP DATABASE IF EXISTS employee;
 
     DELIMITER ;
     
+        
     DESC employee;
 
     SELECT * FROM employee;
@@ -59,3 +62,24 @@ DROP DATABASE IF EXISTS employee;
     CALL average("MANAGEMENT",@average_salary);
 
     SELECT @average_salary;
+    
+    #############################################
+    OR
+    #############################################
+    
+    DELIMITER //
+    
+    CREATE PROCEDURE average(IN dep VARCHAR(20))
+    BEGIN
+        SELECT AVG(salary) AVG_SALARY,enamedept  FROM employee WHERE enamedept=dep GROUP BY enamedept;
+    END//
+        
+    DELIMITER ;
+        
+    DESC employee;
+
+    SELECT * FROM employee;
+
+    CALL average("MANAGEMENT");
+    
+    #############################################
