@@ -31,6 +31,7 @@ DROP DATABASE IF EXISTS employee;
 #departmentname as argument    
 
     ############################################
+    # Using Cursor
     
     DELIMITER //
 
@@ -66,6 +67,7 @@ DROP DATABASE IF EXISTS employee;
     #############################################
     OR
     #############################################
+    # Using Aggregate Function
     
     DELIMITER //
     
