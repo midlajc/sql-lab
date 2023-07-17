@@ -64,9 +64,9 @@
 
     ALTER TABLE sales_order DROP FOREIGN KEY fk_salesman_no;
 
-    ALTER TABLE sales_order DROP CONSTRAINT order_status_const;
+    ALTER TABLE sales_order DROP CONSTRAINT check_order_status;
 
-    ALTER TABLE sales_order DROP CONSTRAINT del_type_const;
+    ALTER TABLE sales_order DROP CONSTRAINT check_del_type;
 
     DESC sales_order;
 
